@@ -1182,7 +1182,9 @@ header {
 	width: 270px;
 	height: 42px;
 	padding: 25px;
-	float: left;
+  padding-top: 10px;
+	padding-bottom: 40px;
+  float: left;
 	border-bottom: 8px solid rgba(0, 0, 0, 0.1);
 	position: relative;
 	z-index: 99;
