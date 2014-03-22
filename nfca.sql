@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2014 年 03 月 20 日 19:05
+-- 生成日期: 2014 年 03 月 22 日 21:59
 -- 服务器版本: 5.5.34-0ubuntu0.13.04.1
 -- PHP 版本: 5.4.9-4ubuntu2.4
 
@@ -130,7 +130,15 @@ CREATE TABLE IF NOT EXISTS `default_blog` (
   `type` set('html','markdown','wysiwyg-advanced','wysiwyg-simple') COLLATE utf8_unicode_ci NOT NULL,
   `preview_hash` char(32) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- 转存表中的数据 `default_blog`
+--
+
+INSERT INTO `default_blog` (`id`, `created`, `updated`, `created_by`, `ordering_count`, `intro`, `title`, `slug`, `category_id`, `body`, `parsed`, `keywords`, `author_id`, `created_on`, `updated_on`, `comments_enabled`, `status`, `type`, `preview_hash`) VALUES
+(1, '2014-03-22 13:01:00', NULL, 1, 1, 'this is intro', 'First Article', 'first-article', 0, 'this is the first article', '', '', 1, 1395493260, 0, '3 months', 'live', 'wysiwyg-advanced', ''),
+(2, '2014-03-22 13:02:00', NULL, 1, 2, 'This is intro', 'Second Article', 'second-article', 0, 'Second Article', '', '', 1, 1395493320, 0, '3 months', 'live', 'wysiwyg-advanced', '');
 
 -- --------------------------------------------------------
 
@@ -169,7 +177,9 @@ CREATE TABLE IF NOT EXISTS `default_ci_sessions` (
 --
 
 INSERT INTO `default_ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('ac49671e6ca447a208cde6f44ed04bf3', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36', 1395313137, 'a:6:{s:8:"username";s:18:"å°¤å·è±ª";s:5:"email";s:26:"howtomakeaturn@hotmail.com";s:2:"id";s:1:"1";s:7:"user_id";s:1:"1";s:8:"group_id";s:1:"1";s:5:"group";s:5:"admin";}');
+('c0ff44df009f25b0e78fd3cd792a9578', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36', 1395367058, 'a:6:{s:8:"username";s:18:"å°¤å·è±ª";s:5:"email";s:26:"howtomakeaturn@hotmail.com";s:2:"id";s:1:"1";s:7:"user_id";s:1:"1";s:8:"group_id";s:1:"1";s:5:"group";s:5:"admin";}'),
+('fe311ce4446ce4300a772c1827113e01', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36', 1395492093, 'a:6:{s:8:"username";s:18:"å°¤å·è±ª";s:5:"email";s:26:"howtomakeaturn@hotmail.com";s:2:"id";s:1:"1";s:7:"user_id";s:1:"1";s:8:"group_id";s:1:"1";s:5:"group";s:5:"admin";}'),
+('ac48410bacb7862cd602a2d96bdc8541', '127.0.0.1', 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1700.107 Safari/537.36', 1395495739, 'a:6:{s:8:"username";s:18:"å°¤å·è±ª";s:5:"email";s:26:"howtomakeaturn@hotmail.com";s:2:"id";s:1:"1";s:7:"user_id";s:1:"1";s:8:"group_id";s:1:"1";s:5:"group";s:5:"admin";}');
 
 -- --------------------------------------------------------
 
@@ -355,22 +365,38 @@ CREATE TABLE IF NOT EXISTS `default_def_page_fields` (
   `ordering_count` int(11) DEFAULT NULL,
   `body` longtext COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=27 ;
 
 --
 -- 转存表中的数据 `default_def_page_fields`
 --
 
 INSERT INTO `default_def_page_fields` (`id`, `created`, `updated`, `created_by`, `ordering_count`, `body`) VALUES
-(1, '2014-03-19 14:19:20', NULL, 1, NULL, '<p>Welcome to our homepage. We have not quite finished setting up our website yet, but please add us to your bookmarks and come back soon.</p>'),
-(2, '2014-03-19 14:19:20', NULL, 1, NULL, '<p>To contact us please fill out the form below.</p>\n				{{ contact:form name="text|required" email="text|required|valid_email" subject="dropdown|Support|Sales|Feedback|Other" message="textarea" attachment="file|zip" }}\n					<div><label for="name">Name:</label>{{ name }}</div>\n					<div><label for="email">Email:</label>{{ email }}</div>\n					<div><label for="subject">Subject:</label>{{ subject }}</div>\n					<div><label for="message">Message:</label>{{ message }}</div>\n					<div><label for="attachment">Attach  a zip file:</label>{{ attachment }}</div>\n				{{ /contact:form }}'),
+(1, '2014-03-19 14:19:20', '2014-03-22 13:15:07', 1, NULL, '<p>接觸點社區關懷協會</p>\n'),
+(2, '2014-03-19 14:19:20', '2014-03-22 13:39:18', 1, NULL, '<p>歡迎您留訊息給我們</p>\n{{ contact:form name=&quot;text|required&quot; email=&quot;text|required|valid_email&quot; subject=&quot;dropdown|需要幫忙|問題|心得回饋|其他&quot; message=&quot;textarea&quot; attachment=&quot;file|zip&quot; }}\n\n<div><label for="name">名字:</label>{{ name }}</div>\n\n<div><label for="email">Email:</label>{{ email }}</div>\n\n<div><label for="subject">主旨:</label>{{ subject }}</div>\n\n<div><label for="message">訊息:</label>{{ message }}</div>\n\n<div><label for="attachment">Attach a zip file:</label>{{ attachment }}</div>\n{{ /contact:form }}'),
 (3, '2014-03-19 14:19:20', NULL, 1, NULL, '{{ search:form class="search-form" }} \n		<input name="q" placeholder="Search terms..." />\n	{{ /search:form }}'),
 (4, '2014-03-19 14:19:20', NULL, 1, NULL, '{{ search:form class="search-form" }} \n		<input name="q" placeholder="Search terms..." />\n	{{ /search:form }}\n\n{{ search:results }}\n\n	{{ total }} results for "{{ query }}".\n\n	<hr />\n\n	{{ entries }}\n\n		<article>\n			<h4>{{ singular }}: <a href="{{ url }}">{{ title }}</a></h4>\n			<p>{{ description }}</p>\n		</article>\n\n	{{ /entries }}\n\n        {{ pagination }}\n\n{{ /search:results }}'),
 (5, '2014-03-19 14:19:20', NULL, 1, NULL, '<p>We cannot find the page you are looking for, please click <a title="Home" href="{{ pages:url id=''1'' }}">here</a> to go to the homepage.</p>'),
 (6, '2014-03-19 15:55:32', NULL, 1, 1, NULL),
-(8, '2014-03-19 16:00:02', NULL, 1, 2, NULL),
-(9, '2014-03-19 16:01:13', NULL, 1, 3, NULL),
-(10, '2014-03-19 16:01:33', NULL, 1, 4, NULL);
+(8, '2014-03-19 16:00:02', '2014-03-22 12:47:43', 1, 2, '<table align="right" border="0" cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12.727272033691406px; line-height: normal; text-align: center; background-color: rgb(255, 255, 247);" width="93%">\n	<tbody>\n		<tr>\n			<td align="left" style="font-size: 13px;" width="96%">\n			<p class="style1" style="font-size: 17px; font-weight: bold; color: rgb(255, 102, 0); line-height: 20px; margin: 0px; padding: 5px 0px;">緣起：</p>\n			</td>\n			<td style="font-size: 13px;" width="4%">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">臺北市是一個高度發達與高度落後、高度富裕與高度貧窮、高度被重視與高度被忽視並存的地方。大多數人看待臺北的態度使得臺北人的窮乏、需要與落後被發達、繁榮與財富所遮掩。身處於臺北的行政區&mdash;內湖，同樣具備著前述臺北市的特點。隨著科技園區的成立、捷運的通車、AIT 的進駐，這些發展使得內湖的房價不斷攀升。然而，這些炒作出來的房價讓人更容易忽略了內湖多數老舊社區中的弱勢居民們。地段漲，房租跟著漲，在內湖的生活對經濟弱勢家庭來說變得更加不容易。</p>\n\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">近幾年來，經濟發展遲滯，所得分配不均日益嚴重，薪資水準不如以往，許多家庭的收入穩定性下降，經濟安全的風險不斷提昇，都會地區的「近貧家庭」問題逐漸浮上檯面。這些家庭的經濟困境不再只是「失業」而致，相反的是一種「工作貧窮」的社會問題。傳統上，我們對於貧窮的概念理解往往等同於「沒有工作」、「失業」、「教育水準低」、「身體狀況不佳」，然而工作貧窮的現象則是顯示「工作」、與「貧窮」這兩個概念已經可以結合。換言之，我們這個時代的經濟與社會困境不再只是有沒有工作的問題，而是工作的報酬不足以應付都會地區的生活水準。<br />\n			近貧家庭的概念主要在描述一種不同於低收入戶、中低收入戶的一個群體，這個群體經常被排除於社會救助體系之外，究其原因，往往不在於家戶所得不夠低，而是其他複雜的認定問題。因此這個群體中有許多人的家庭經濟狀況與中低收入戶或低收入戶相仿，卻因無法取得救助身分而得不到任何的資源，從而在生活中面對不同程度的困境與挑戰。<br />\n			本會係發起人邱頌恩先生有鑑於台灣福利體制的破口，回應神在他心中的感動，於服役結束後便選擇直接走上關懷弱勢的道路，招聚了一群秉持要將神的愛澆灌給窮乏人的心志之基督徒共同成立。主要關懷的對象為都市中特有的「新貧族」或「近貧族」之家庭。我們希望讓社會知道，「低收入戶」、「中低收入戶」並非貧窮的全部（甚至在今日許多政府與民間資源大量重複投注在低收入戶的今日，中低收入戶或低收入戶的生活有可能比近貧家庭擁有更多的選擇與機會），甚至可能是這個時代更值得社會關懷者、福利制度設計者或者社會研究者切入的一個面向或領域。</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">&nbsp;</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" class="style1" style="font-size: 17px; color: rgb(255, 102, 0); font-weight: bold;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">從理念到實際：</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">為成立一個貼近民眾需求的協會，除了理念與理論之外，亦需要參考機構實際之行政運作及執行，因此101 年1月起，有志成立協會的工作人員們即開始進行考察及訪問在地進行社區福利服務工作的團體（以基督教團體為主要觀察對象），經過許多資料的收集與彙整後，4月1日正式展開成立協會之發起人招募，經過數次的理念說明後，終於在7月22日召開第1次協會籌備委員會，後於101年9月9日召開會員大會並成立「臺北市接觸點社區關懷協會」；另為強化協會適法性與公信力，續於10月11日向法院完成法人登記，成為「社團法人臺北市接觸點社區關懷協會」。目前會員共計46 人，人數雖然不多，但皆屬滿腔熱血想要為自己最愛的土地貢獻一番心力之有志之士。</p>\n			</td>\n		</tr>\n	</tbody>\n</table>\n'),
+(9, '2014-03-19 16:01:13', '2014-03-22 12:50:23', 1, 3, '<table align="right" border="0" cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12.727272033691406px; line-height: normal; text-align: center; background-color: rgb(255, 255, 247);" width="93%">\n	<tbody>\n		<tr>\n			<td align="left" class="style1" style="font-size: 17px; color: rgb(255, 102, 0); font-weight: bold;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">目標異象與首要任務：</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">本會籌組之初，即決定幾個基要的的方向，1.在地服務：我們希望能夠深入我們所身處的內湖地區，進行在地服務，成為他們生活與生命的幫助者，並建立社區支援網路的系統。日後按著我們的能力再逐漸擴大服務的地理範圍。2.以家庭為核心：我們對於社會問題的界定以「家庭」的概念出發，輻射出五個大略的方向，即兒童、青少年、夫妻、親子與老年人五個問題面向（圖一）。3.先易後難：承前所述五個領域當中，我們決定以專業程度、資本密集與勞力密集程度均較低卻也是一個經濟弱勢家庭的兒童領域作為第一個服務計畫。即決定從經濟弱勢家庭最常出現的問題─「兒童教養」作為切入的領域。我們選定了國小至國中階段學生推出弱勢家庭課後照顧陪讀服務（迎曦計畫），以免費的方式服務符合我們照顧的家庭。</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;"><img alt="" height="309" src="http://nfca.org.tw/images/about.gif" width="654" /></td>\n		</tr>\n	</tbody>\n</table>\n'),
+(10, '2014-03-19 16:01:33', '2014-03-22 12:50:52', 1, 4, '<table align="right" border="0" cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12.727272033691406px; line-height: normal; text-align: center; background-color: rgb(255, 255, 247);" width="93%">\n	<tbody>\n		<tr>\n			<td align="left" class="style1" style="font-size: 17px; color: rgb(255, 102, 0); font-weight: bold;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">社團法人臺北市接觸點社區關懷協會組織圖：</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" height="19" style="font-size: 13px;"><img alt="" height="587" src="http://nfca.org.tw/images/about3.png" width="568" /></td>\n		</tr>\n	</tbody>\n</table>\n'),
+(11, '2014-03-22 12:44:57', '2014-03-22 13:23:13', 1, 5, '請到後台上傳影片'),
+(12, '2014-03-22 12:46:08', '2014-03-22 12:51:56', 1, 6, '<table align="right" border="0" cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12.727272033691406px; line-height: normal; text-align: center; background-color: rgb(255, 255, 247);" width="93%">\n	<tbody>\n		<tr>\n			<td align="left" class="style1" style="font-size: 17px; color: rgb(255, 102, 0); font-weight: bold;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">連絡我們：</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<ul>\n				<li class="style2" style="font-size: 15px;">\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">協會行政業務&nbsp;<a href="mailto:contact@nfca.org.tw">contact@nfca.org.tw</a></p>\n				</li>\n				<li class="style2" style="font-size: 15px;">\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">課後照顧陪讀班服務信箱&nbsp;<a href="mailto:class@nfca.org.tw">class@nfca.org.tw</a></p>\n				</li>\n				<li class="style2" style="font-size: 15px;">\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">弱勢家庭學前教育業務信箱&nbsp;<a href="mailto:rye@nfca.org.tw">rye@nfca.org.tw</a></p>\n				</li>\n			</ul>\n			</td>\n		</tr>\n	</tbody>\n</table>\n'),
+(13, '2014-03-22 12:54:30', NULL, 1, 7, NULL),
+(14, '2014-03-22 12:55:28', '2014-03-22 12:55:32', 1, 8, '<table align="right" border="0" cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12.727272033691406px; line-height: normal; text-align: center; background-color: rgb(255, 255, 247);" width="93%">\n	<tbody>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<p class="style2" style="font-size: 17px; font-weight: bold; color: rgb(0, 51, 153); line-height: 20px; margin: 0px; padding: 5px 0px;">緣起：</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">「新貧族」、「近貧族」和「窮忙族」是這個世代漸漸流行的名詞。「工作」與「貧窮」已經是兩個可以結合在一起的語彙，合稱「工作貧窮」，用來形容台灣日益突顯的社會問題。貧窮不再只是由於不工作、沒有全職的工作、勞工工時不足、中年失業、低教育水準或身體不佳等因素所造成的。</p>\n\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">在台灣，有工作不再是脫貧的保證。台灣每月月薪在2 萬元以下的勞工數，長期維持在100 萬人左右，月薪3 萬元以下的，佔就業人口比例高達42.8％，有350 萬人。收入減少、支出增加所造成的財務惡化，更讓國內所得最低20％的家庭，也就是160 萬戶人家、約500萬人必須借錢或吃老本過活。從數據來推估，這些家庭已經連續5 年沒有儲蓄，他們必須從過往的儲蓄中，拿出某一家庭成員2 個月的薪水，或是舉債，來支應生活所需。過去5 年，平均每戶家庭是「負儲蓄」高達8 萬7 千多元。此外，2012 年行政院主計總處調查，2011年所得最低二十％家庭（一五九．二萬戶）仍入不敷出，平均每戶「負儲蓄」二萬九三○八元，高於前年的二萬○五二五元，已連續五年「負儲蓄」，且透支金額創下史上次高；所得次低二十％家庭，平均每戶儲蓄也降至二萬四八一九元，為二十九年來次低，國內新貧、近貧家庭愈來愈多。台大經濟系教授林向愷認為，低所得家庭連續五年出現「負儲蓄」，次低所得家庭儲蓄金額也大減，原因不只是高齡化或退休人口增加，而是分配出了問題，由於薪資不漲、失業率高，國內四十％家庭無法享受經濟成長果實，工作貧窮問題日益嚴重；值得注意的是，今年物價漲得兇，這些中低所得家庭可能無法應付，基本維生能力出問題。</p>\n\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">除了工作貧窮的問題，根據勞委會最新調查發現，過去一年，全台灣有超過半數勞工加過班，一天工作超過12 小時的勞工，比例更高達27%，也就是有178 萬人超時工作。面對工時不斷增加，實質薪資卻停滯的經濟狀態，許多家庭都將逐漸面臨程度不同的家庭職能失衡，卻也無力改變的了。</p>\n\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">如果要以一句簡單的陳述來描繪我們這個時代的問題，將會是「風險提高、穩定性下降、家庭結構的離散和以家庭為核心的安全網日漸薄弱」。在台灣，過去我們覺得這是不努力的人才會面對的問題，而今許多家庭與孩子在不久的將來都有落入這個危險的可能性，並且他們很可能無法取得中低、或低收入戶的資格，而被排除在社會救助網絡之外。</p>\n\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">然而在當前經濟前景黯淡的大環境中，就業維生與陪伴孩子之間經常只能無奈的選擇前者，從而造成子女問題的每況愈下。將來，這群孩子所延續或繼承的很可能仍然是貧窮的人生處境。首推弱勢家庭課後陪讀計畫-「迎曦計畫」。迎曦，顧名思義即為迎接日出，日出能夠破除黑夜的冰冷，讓人感受光明，充滿希望。期待透過迎曦計畫的運作，讓這些生活過得艱辛的家庭仍能感到社會的溫暖，對未來充滿盼望。</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">&nbsp;</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" class="style2" style="font-size: 17px; color: rgb(0, 51, 153); font-weight: bold;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">計畫內容：</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">迎曦計畫-課後陪讀班的主要對象為6-15歲的學生。國小學童方面，以課後安親為主；國中生部分，除協助其完成作業外，亦包含重點教學課程，如數學、英文等。希望讓弱勢兒童能夠在面對功課難題時，不再因經濟問題無法補習或上安親班而對學業感到無助，減輕貧窮線邊緣的弱勢家庭因孩子學習所帶來之經濟困境。本計畫強調『陪伴』的重要性，讓這些孩子感受到「愛」與「生命的價值」，也是幫助家庭的一部份，進而改善親子關係，讓孩子的課業與課各面能夠自然而然的進步。</p>\n\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;"><a href="http://nfca.org.tw/download/plan.pdf">（詳細文案可以參考2013迎曦計畫pdf）</a></p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">&nbsp;</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" class="style2" style="font-size: 17px; color: rgb(0, 51, 153); font-weight: bold;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">迎曦計畫發展目標</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<p class="style3" style="font-weight: bold; line-height: 20px; margin: 0px; padding: 5px 0px;">短程--給予經濟弱勢家庭學童最直接且迫切的幫助</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">近年來社會福利工作在做的已經不只是發錢的工作，許多學者主張的是要增權賦能（empowerment）。給予經濟弱勢家庭學童最直接且迫切幫助的方式即是，讓家長可以放心且沒有壓力的送孩子到我們這裡來，除了每天的餐費（一餐自費30 元，協會補助10 元）和保證金（每個月800 元，當月若無無故缺席則下月不需繳交，依此類堆）之外，不收取任何其他費用。本會沒有提供完全免費之課輔班的目的在於，我們幫助的這群近貧家庭並非窮到沒有飯吃的家庭，我們想保留一些家長照顧子女的責任。透過讓家長自行負擔部分費用，家長才會看重自己父母的角色。從原本憂慮於沒能力負擔孩子課後照顧的費用，到認為自己是有能力可以送孩子到一個不錯的課後照顧班，這是對家長的增權。提供孩子優質的課後照顧環境，幫助孩子在回家前將功課做完。家長在疲憊的工作回家後不用再為了孩子的課業而擔憂，反而可以輕鬆的花些時間跟孩子談談心、看看電視，一起做一些休閒活動，這是一種賦能。幫助家長更有能力扮演好父母的角色，跟孩子建立良好的親子關係。</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">&nbsp;</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" class="style3" style="font-size: 13px; font-weight: bold;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">中程--讓本會成為經濟弱勢家庭學童的第二個家，心靈的家</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">這群孩子有房子可以居住但卻沒有家，許多孩子每天課輔結束以後不願意回到居住的地方，因為父母可能不在家，可能很晚才能夠回來，也可能是單親的狀態。這群孩子有一些人未必適合念書，但是我們也希望透過發掘他們的特質，讓他們找到自己努力的目標，適性發展。我們不願意招收大量的學生，也許這樣的數據會更加的醒目，但是我們秉持基督尋找一百隻羊當中失落的一隻那樣的精神，我們面對每一個所照顧的孩子都是全心全意的關懷，也因此我們目前的能力以及容納的數量相當有限。<br />\n			因此，在幫助孩子的課業之外，本會也努力讓迎曦計畫的課後陪讀班成為這群孩子心靈的家，一個心靈的歸屬。以至於我們能夠將良好的品格，傳遞到這群孩子的生命當中。讓他們在成長過程中，不致於迷失、也不致於誤入歧途。</p>\n\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">我們希望來這裡的孩子他們的生命能夠有所轉變。我們希望在他們生命當中烙印一個很深刻的記號，那便是有一群人他們愛著你們，你們的家庭也許不健全、也許很匱乏，但是有一群不認識他們的人帶著神的愛，願意愛他們如同他們的親人，願意照顧他們，如同他們的家長一樣。我們希望帶給他們的是積極正面，並且長大後願意回饋社會的人生態度，以及行公義好憐憫的品格。這是我們的使命，落實全人關懷與全人照顧是我們的照顧方式。</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">&nbsp;</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" class="style3" style="font-size: 13px; font-weight: bold;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">長程--觀念的傳遞，教育社會大眾新的觀念，且一代接著一代，讓愛傳下去</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">在我們當中無論是受到幫助的家庭或捐助者，我們都花時間致力於傳遞新的觀念，也就是將關懷的焦點放的再寬廣一點，更多關注那些在貧窮線附近得不到社會救助身分的家庭。本會更希望在日後能提供一個平台，讓社會大眾能容易取得相關訊息，更敏銳於這個社會的轉變，也為這個社會能付一己之力，以期達到本會「關注社區之需要、扶助弱勢民眾、凝聚社區意識、發揮彼此相顧之愛心及營造健全美滿家庭」之宗旨。</p>\n\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">對於迎曦計畫中的孩子而言，我們從小教育他們自己不是爛蘋果才被送到我們這裡來，不要樂於當沒人管的野孩子。來到我們這裡的孩子家庭是過的比許多人還要辛苦一點，給予他們幫助就是希望他們能運用這些資源來發揮自己的潛能。與這群孩子相較，也還有更多是比他們還要不幸的孩子。我們期待透過教育，激發孩子彼此相顧的愛心，將來當他們稍稍長大有能力的時候，希望他們也願意擺上一己之力來幫助另一群同樣需要幫助的孩子。讓這個迎曦計畫可以一代接著一代的做下去，我們現在幫助的孩子可以成為日後照顧另一群孩子的人，這是在未來我們期待可以看見的成果。</p>\n			</td>\n		</tr>\n	</tbody>\n</table>\n'),
+(15, '2014-03-22 12:56:39', NULL, 1, 9, '<table align="right" border="0" cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12.727272033691406px; line-height: normal; text-align: center; background-color: rgb(255, 255, 247);" width="93%">\n	<tbody>\n		<tr>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;"><img alt="" height="968" src="http://nfca.org.tw/images/plan.jpg" width="685" /></td>\n		</tr>\n	</tbody>\n</table>'),
+(16, '2014-03-22 12:57:51', NULL, 1, 10, '<table align="right" border="0" cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12.727272033691406px; line-height: normal; text-align: center; background-color: rgb(255, 255, 247);" width="93%">\n	<tbody>\n		<tr>\n			<td align="left" class="style1" style="font-size: 19px; color: rgb(237, 55, 34); font-weight: bold;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">麥田計畫 ─ 學前教育福利服務（臺北市私立麥田幼兒園）</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">&nbsp;</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" class="style2" style="font-size: 17px; color: rgb(0, 51, 153); font-weight: bold;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">園所簡介：</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">臺北市私立麥田幼兒園係屬社團法人台北市接觸點社區關懷協會(以下稱本會)附設之幼兒園。本會基於「關注社區之需要、扶助弱勢民眾、凝聚社區意識、發揮彼此相顧之愛心營造健全美滿家庭」之宗旨，本於非營利之精神，致力於提供低價優質的幼兒學習環境。凡經本會審核符合經濟弱勢家庭之幼兒，其費用將有部分減免；另本會也針對5歲以下之特殊境遇幼兒提供學費全額減免、月費減免七成名額若干。本會希望藉由不同程度的經費補助，讓經濟基礎薄弱家庭之幼兒能夠接受學前教育，因為學前階段是孩子各方面發展的基礎，需要有足夠的刺激、引導、互動與學習的場域。我們鼓勵因辛苦工作而無法長時間陪伴孩子的家長們，讓您的孩子來接受學前教育，豐富孩子的生活經驗，以利其各方面的成長與發展。</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">&nbsp;</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" class="style2" style="font-size: 17px; color: rgb(0, 51, 153); font-weight: bold;">園所理念：</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">「麥田」的名稱來自知名小說家沙林傑的作品《麥田捕手》的啟發。書中的男主角荷頓是個帶有一點反社會性格的青少年，他認為這個社會中的許多事物都很虛偽，而學校也只是社會的縮影而已。當荷頓要被學校退學時，校長對他說：「人生就是比賽，你應該按照規則去參加比賽。」荷頓對於這樣的論述很不以為意，他對自己未來想做的事情的想像是：成千上萬的孩子在懸崖邊的麥田裡玩耍，除了他之外，沒有任何大人在場；他必須時時注意，在崖邊攫住孩子，不讓他們胡亂衝到懸崖外頭去。這樣如此單純的想法讓麥田的老師們深受感動，這個社會還能保有多少這樣的單純。荷頓想做的事情的出發點簡單直接，即是代替成年人守望孩子，不限制他們橫衝直撞，但也不會讓他們受到傷害。</p>\n\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">「讓孩子們奔跑吧！守候與守望，我願做的麥田捕手。」這是麥田幼兒園的老師們的座右銘。<br />\n			這裡不是一個比賽競技場、這裡沒有制式化的教學，這裡也不是小學先修班。相對地，這裡也不是放牛吃草的地方。麥田的老師們有著堅定的基督信仰，我們一方面讓孩子享受童年，給予孩子充分的空間自由探索、盡情歡笑。另一方面，我們也秉持著聖經的教導，「教養孩童，使他走當行的道，就是到老他也不偏離。」我們會鼓勵孩子在尊重他人的前提下，盡情認識自我、發掘自我和展現自我。<br />\n			邀請您帶著您的孩子一同來體驗「麥田」的明媚。</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">教學特色：<br />\n			1)設置多樣學習角落，給予幼兒時間在遊戲中自由探索學習。<br />\n			2)採各學習領域融合式的主題教學課程，透過主題的探討豐富幼兒各方面的經驗，包含 認知、語文、情緒、社會、美感和身體動作等。<br />\n			3)培養孩子獨立思考的精神，勇於提出問題及尋找答案。<br />\n			4)養成孩子正向的人格特質，包括仁愛、喜樂、和平、忍耐、恩慈、良善、信實、溫柔、 節制等。<br />\n			5)蘊涵宗教情操，教導孩子愛人如己。</p>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">招收對象：2-6歲幼兒<br />\n			1. 一般生5名<br />\n			2. 家庭經濟弱勢優待生15名<br />\n			3. 家庭經濟弱勢學費豁免生3名</p>\n			</td>\n		</tr>\n	</tbody>\n</table>'),
+(17, '2014-03-22 12:58:21', NULL, 1, 11, '即將推出'),
+(18, '2014-03-22 13:10:53', NULL, 1, 12, '<table align="right" border="0" cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12.727272033691406px; line-height: normal; text-align: center; background-color: rgb(255, 255, 247);" width="93%">\n	<tbody>\n		<tr>\n			<td align="left" style="font-size: 13px;" width="98%">\n			<ul>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">台灣公益資訊中心 <a href="http://www.npo.org.tw/" target="_blank">http://www.npo.org.tw/</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">行政院勞工委員會 <a href="http://www.cla.gov.tw/" target="_blank">http://www.cla.gov.tw/</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">勞工保險局全球資訊網 <a href="http://www.bli.gov.tw/" target="_blank">http://www.bli.gov.tw/</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">台灣世界展望會 <a href="http://www.worldvision.org.tw/" target="_blank">http://www.worldvision.org.tw/</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">Y.M.C.A兒童青少年活動 <a href="http://camp.ywca-taipei.org.tw/index.html" target="_blank">http://camp.ywca-taipei.org.tw/index.html</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">兒童福利聯盟文教基金會 <a href="http://www.children.org.tw/" target="_blank">http://www.children.org.tw/</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">財團法人天主教善牧社會福利基金會 <a href="http://www.goodshepherd.org.tw/chtw/" target="_blank">http://www.goodshepherd.org.tw/chtw/</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">城市生命純福音教會國中課輔班 <a href="http://www.cslfgc.org/page/2/54" target="_blank">http://www.cslfgc.org/page/2/54</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">中華基督教信義會新竹勝利堂課輔班<br />\n				<a href="http://victorychurch.org.tw/index.php?option=com_content&amp;task=view&amp;id=1160&amp;Itemid=1473" target="_blank">http://victorychurch.org.tw/index.php?option=com_content&amp;task=view&amp;id=1160&amp;Itemid=1473</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">社團法人台灣愛鄰社區服務協會-綠色種子課輔班 <a href="http://www.i-link.org.tw/care.php?recordId=715" target="_blank">http://www.i-link.org.tw/care.php?recordId=715</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">財團法人台灣基督教會門諾會課輔班 <a href="http://www.akowf.org.tw/unit_detial.php?unitid=154&amp;unitkind=27" target="_blank">http://www.akowf.org.tw/unit_detial.php?unitid=154&amp;unitkind=27</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">興起教會課輔班 <a href="http://www.akowf.org.tw/unit_detial.php?unitid=153&amp;unitkind=27" target="_blank">http://www.akowf.org.tw/unit_detial.php?unitid=153&amp;unitkind=27</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">大安基督長老教會課輔班 <a href="http://www.akowf.org.tw/unit_detial.php?unitid=96&amp;unitkind=27" target="_blank">http://www.akowf.org.tw/unit_detial.php?unitid=96&amp;unitkind=27</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">財團法人台灣省基督教倫理堂玉里教會課輔班 <a href="http://www.akowf.org.tw/unit_detial.php?unitid=107&amp;unitkind=27" target="_blank">http://www.akowf.org.tw/unit_detial.php?unitid=107&amp;unitkind=27</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">一粒麥子基金會課輔班 <a href="http://www.akowf.org.tw/unit_detial.php?unitid=99&amp;unitkind=27" target="_blank">http://www.akowf.org.tw/unit_detial.php?unitid=99&amp;unitkind=27</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">台灣基督長老教會大南教會課輔班 <a href="http://www.akowf.org.tw/unit_detial.php?unitid=100&amp;unitkind=27" target="_blank">http://www.akowf.org.tw/unit_detial.php?unitid=100&amp;unitkind=27</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">財團法人中華基督教台東縣達旺浸信會課輔班<br />\n				<a href="http://www.akowf.org.tw/unit_detial.php?unitid=103&amp;unitkind=27" target="_blank">http://www.akowf.org.tw/unit_detial.php?unitid=103&amp;unitkind=27</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">台灣基督長老教會溫泉教會課輔班 <a href="http://www.akowf.org.tw/unit_detial.php?unitid=104&amp;unitkind=27" target="_blank">http://www.akowf.org.tw/unit_detial.php?unitid=104&amp;unitkind=27</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">台灣基督長老教會愛國蒲教會課輔班 <a href="http://www.akowf.org.tw/unit_detial.php?unitid=105&amp;unitkind=27" target="_blank">http://www.akowf.org.tw/unit_detial.php?unitid=105&amp;unitkind=27</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">台灣基督長老教會大武教會課輔班 <a href="http://www.akowf.org.tw/unit_detial.php?unitid=106&amp;unitkind=27" target="_blank">http://www.akowf.org.tw/unit_detial.php?unitid=106&amp;unitkind=27</a></p>\n				</li>\n				<li>\n				<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">財團法人蒙恩宣教中心台坂教會課輔班 <a href="http://www.akowf.org.tw/unit_detial.php?unitid=108&amp;unitkind=27" target="_blank">http://www.akowf.org.tw/unit_detial.php?unitid=108&amp;unitkind=27</a></p>\n				</li>\n			</ul>\n			</td>\n		</tr>\n	</tbody>\n</table>'),
+(19, '2014-03-22 13:11:45', NULL, 1, 13, NULL),
+(20, '2014-03-22 13:12:48', NULL, 1, 14, '請至後台編輯'),
+(21, '2014-03-22 13:13:11', '2014-03-22 13:13:50', 1, 15, '請至後台編輯'),
+(22, '2014-03-22 13:18:16', NULL, 1, 16, NULL),
+(23, '2014-03-22 13:19:39', NULL, 1, 17, '請直接至後台上傳照片'),
+(24, '2014-03-22 13:25:14', '2014-03-22 13:29:08', 1, 18, '請到後台上傳檔案<a class="pyro-file" href="{{ url:site }}files/download/3d5b8bf945d6b23">join</a>'),
+(25, '2014-03-22 13:31:11', NULL, 1, 19, '<table align="right" border="0" cellpadding="0" cellspacing="0" style="font-family: Arial, Helvetica, sans-serif; font-size: 12.727272033691406px; line-height: normal; text-align: center; background-color: rgb(255, 255, 247);" width="93%">\n	<tbody>\n		<tr>\n			<td align="left" style="font-size: 13px;" width="97%">&nbsp;</td>\n			<td style="font-size: 13px;" width="3%">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">&nbsp;</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">&nbsp;</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<div id="showtext">\n			<div id="text" style="padding: 5px 10px; width: 637.9545288085938px; margin: 0px auto;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">&nbsp;</p>\n\n			<div class="yom-mod yom-art-content " id="yui_3_5_1_1_1347865384802_484" style="margin: 0px 0px 5px; padding: 0px 0px 20px; zoom: 0; border-top-style: none; border-color: rgb(52, 78, 127); font-family: arial, STHeiti, pmingliu, sans-serif; font-size: 13px; line-height: 16px;">\n			<div class="bd" id="yui_3_5_1_1_1347865384802_483" style="margin: 0px; padding: 0px; zoom: 0; font-size: 16px; font-family: Georgia, Times, ''Times New Roman'', serif; line-height: 25px;">&nbsp;</div>\n\n			<table border="2" cellpadding="0" cellspacing="2" style="font-family: Arial, Helvetica, sans-serif; font-size: 12.800000190734863px;">\n				<tbody>\n					<tr>\n						<td colspan="2" style="font-size: 13px;" valign="top">\n						<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">捐款方式</p>\n						</td>\n					</tr>\n					<tr>\n						<td style="font-size: 13px;" valign="top" width="81">\n						<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">郵政劃撥</p>\n						</td>\n						<td style="font-size: 13px;" valign="top" width="564">\n						<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">帳號：50242018<br />\n						戶名：社團法人臺北市接觸點社區關懷協會&nbsp;<br />\n						請至郵局劃撥，並填寫姓名、電話、住址、email，以利寄發收據</p>\n						</td>\n					</tr>\n					<tr>\n						<td style="font-size: 13px;" valign="top" width="81">\n						<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">銀行匯款</p>\n						</td>\n						<td style="font-size: 13px;" valign="top" width="564">\n						<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">銀行名稱：郵局&nbsp;<br />\n						帳號：0002521-0210046<br />\n						戶名：社團法人臺北市接觸點社區關懷協會&nbsp;<br />\n						匯款後，請將以下資訊Email（contact@nfca.org.tw）、傳真&nbsp;<br />\n						（02-27945667）或傳簡訊（09XXXXXXXX）&nbsp;<br />\n						（1）姓名、電話、地址、Email<br />\n						（2）匯款日期&nbsp;<br />\n						（3）轉帳帳號（後五碼）</p>\n\n						<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">以便核對捐款人及寄發收據</p>\n						</td>\n					</tr>\n					<tr>\n						<td style="font-size: 13px;" valign="top" width="81">\n						<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">信用卡捐款</p>\n						</td>\n						<td style="font-size: 13px;" valign="top" width="564">\n						<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">（1）請線上填寫或下載授權單（PDF檔案）&nbsp;<br />\n						（2)填妥後請傳真至(02)2794-5667 或 Email:contact@nfca.org.tw</p>\n						</td>\n					</tr>\n					<tr>\n						<td style="font-size: 13px;" valign="top" width="81">\n						<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">物資捐贈</p>\n						</td>\n						<td style="font-size: 13px;" valign="top" width="564">\n						<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">請致電本會(02)2794-5837 分機14 &nbsp; 聯繫</p>\n						</td>\n					</tr>\n					<tr>\n						<td style="font-size: 13px;" valign="top" width="81">\n						<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">發票捐贈</p>\n						</td>\n						<td style="font-size: 13px;" valign="top" width="564">\n						<p style="line-height: 20px; margin: 0px; padding: 5px 0px;">請協助收集發票後，郵寄至臺北市內湖區內湖路三段139號一樓</p>\n						</td>\n					</tr>\n				</tbody>\n			</table>\n			</div>\n			</div>\n			</div>\n			</td>\n			<td style="font-size: 13px;">&nbsp;</td>\n		</tr>\n		<tr>\n			<td align="left" style="font-size: 13px;">\n			<p style="line-height: 20px; margin: 0px; padding: 5px 0px;"><a href="http://nfca.org.tw/download/donate_credit.pdf">信用卡傳真授權單</a>&nbsp;&nbsp;<a href="http://nfca.org.tw/download/credit_revisited.pdf">信用卡傳真授權單-信用卡異動資料</a>&nbsp;&nbsp;</p>\n			</td>\n		</tr>\n	</tbody>\n</table>'),
+(26, '2014-03-22 13:36:30', NULL, 1, 20, NULL);
 
 -- --------------------------------------------------------
 
@@ -432,6 +458,13 @@ CREATE TABLE IF NOT EXISTS `default_files` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- 转存表中的数据 `default_files`
+--
+
+INSERT INTO `default_files` (`id`, `folder_id`, `user_id`, `type`, `name`, `filename`, `path`, `description`, `extension`, `mimetype`, `keywords`, `width`, `height`, `filesize`, `alt_attribute`, `download_count`, `date_added`, `sort`) VALUES
+('3d5b8bf945d6b23', 1, 1, 'd', 'join', '0ab9c614e479d32e01ca013d7f63c866.pdf', '{{ url:site }}files/download/3d5b8bf945d6b23', 'join', '.pdf', 'application/pdf', '', 0, 0, 146, '', 1, 1395494936, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -449,7 +482,14 @@ CREATE TABLE IF NOT EXISTS `default_file_folders` (
   `sort` int(11) NOT NULL DEFAULT '0',
   `hidden` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- 转存表中的数据 `default_file_folders`
+--
+
+INSERT INTO `default_file_folders` (`id`, `parent_id`, `slug`, `name`, `location`, `remote_container`, `date_added`, `sort`, `hidden`) VALUES
+(1, 0, '-', '會訊刊物', 'local', '', 1395494791, 1395494791, 0);
 
 -- --------------------------------------------------------
 
@@ -462,7 +502,7 @@ CREATE TABLE IF NOT EXISTS `default_groups` (
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `description` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
 -- 转存表中的数据 `default_groups`
@@ -470,7 +510,8 @@ CREATE TABLE IF NOT EXISTS `default_groups` (
 
 INSERT INTO `default_groups` (`id`, `name`, `description`) VALUES
 (1, 'admin', 'Administrator'),
-(2, 'user', 'User');
+(2, 'user', 'User'),
+(3, 'nfca_staff', 'Nfca_staff');
 
 -- --------------------------------------------------------
 
@@ -613,20 +654,36 @@ CREATE TABLE IF NOT EXISTS `default_navigation_links` (
   `class` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `navigation_group_id` (`navigation_group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=24 ;
 
 --
 -- 转存表中的数据 `default_navigation_links`
 --
 
 INSERT INTO `default_navigation_links` (`id`, `title`, `parent`, `link_type`, `page_id`, `module_name`, `url`, `uri`, `navigation_group_id`, `position`, `target`, `restricted_to`, `class`) VALUES
-(1, 'Home', 0, 'page', 1, '', '', '', 1, 0, NULL, NULL, ''),
-(2, 'Blog', 0, 'module', NULL, 'blog', '', '', 1, 2, NULL, NULL, ''),
-(3, 'Contact', 0, 'page', 2, '', '', '', 1, 3, NULL, NULL, ''),
+(1, '首頁', 0, 'page', 1, '', '', '', 1, 0, '', '0', ''),
+(2, '近期活動', 19, 'module', 0, 'blog', '', '', 1, 0, '', '0', ''),
+(3, '留言板', 23, 'page', 2, '', '', '', 1, 0, '', '0', ''),
 (4, '認識我們', 0, 'page', 6, '', '', '', 1, 1, '', '0', ''),
 (5, '緣起', 4, 'page', 8, '', '', '', 1, 0, '', '0', ''),
 (6, '目標異象', 4, 'page', 9, '', '', '', 1, 1, '', '0', ''),
-(7, '組織', 4, 'page', 10, '', '', '', 1, 2, '', '0', '');
+(7, '組織', 4, 'page', 10, '', '', '', 1, 2, '', '0', ''),
+(8, '宣傳短片', 4, 'page', 11, '', '', '', 1, 3, '', '0', ''),
+(9, '聯絡我們', 4, 'page', 12, '', '', '', 1, 4, '', '0', ''),
+(10, '推展計畫', 0, 'page', 13, '', '', '', 1, 2, '', '0', ''),
+(11, '迎曦計畫', 10, 'page', 14, '', '', '', 1, 0, '', '0', ''),
+(12, '每日五十', 10, 'page', 15, '', '', '', 1, 1, '', '0', ''),
+(13, '麥田幼兒園', 10, 'page', 16, '', '', '', 1, 2, '', '0', ''),
+(14, '義賣專區', 10, 'page', 17, '', '', '', 1, 3, '', '0', ''),
+(15, '資源聯結', 0, 'page', 18, '', '', '', 1, 8, '', '0', ''),
+(16, '財務徵信', 0, 'page', 19, '', '', '', 1, 7, '', '0', ''),
+(17, '捐款芳名錄', 16, 'page', 20, '', '', '', 1, 0, '', '0', ''),
+(18, '財務報告', 16, 'page', 21, '', '', '', 1, 1, '', '0', ''),
+(19, '活動花絮', 0, 'page', 22, '', '', '', 1, 6, '', '0', ''),
+(20, '活動花絮', 19, 'page', 23, '', '', '', 1, 1, '', '0', ''),
+(21, '會訊刊物', 0, 'page', 24, '', '', '', 1, 5, '', '0', ''),
+(22, '我要捐款', 0, 'page', 25, '', '', '', 1, 3, '', '0', ''),
+(23, '公民論壇', 0, 'page', 26, '', '', '', 1, 4, '', '0', '');
 
 -- --------------------------------------------------------
 
@@ -662,22 +719,38 @@ CREATE TABLE IF NOT EXISTS `default_pages` (
   PRIMARY KEY (`id`),
   KEY `slug` (`slug`),
   KEY `parent_id` (`parent_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=27 ;
 
 --
 -- 转存表中的数据 `default_pages`
 --
 
 INSERT INTO `default_pages` (`id`, `slug`, `class`, `title`, `uri`, `parent_id`, `type_id`, `entry_id`, `css`, `js`, `meta_title`, `meta_keywords`, `meta_robots_no_index`, `meta_robots_no_follow`, `meta_description`, `rss_enabled`, `comments_enabled`, `status`, `created_on`, `updated_on`, `restricted_to`, `is_home`, `strict_uri`, `order`) VALUES
-(1, 'home', '', 'Home', 'home', 0, '1', '1', NULL, NULL, NULL, '', NULL, NULL, NULL, 0, 0, 'live', 1395238761, 0, '', 1, 1, 1),
-(2, 'contact', '', 'Contact', 'contact', 0, '1', '2', NULL, NULL, NULL, '', NULL, NULL, NULL, 0, 0, 'live', 1395238761, 0, '', 0, 1, 2),
-(3, 'search', '', 'Search', 'search', 0, '1', '3', NULL, NULL, NULL, '', NULL, NULL, NULL, 0, 0, 'live', 1395238761, 0, '', 0, 1, 3),
+(1, 'home', '', '首頁', 'home', 0, '1', '1', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395238761, 1395494107, '0', 1, 1, 2),
+(2, 'contact', '', '留言板', 'contact', 0, '1', '2', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395238761, 1395495558, '0', 0, 1, 3),
+(3, 'search', '', 'Search', 'search', 0, '1', '3', NULL, NULL, NULL, '', NULL, NULL, NULL, 0, 0, 'live', 1395238761, 0, '', 0, 1, 4),
 (4, 'results', '', 'Results', 'search/results', 3, '1', '4', NULL, NULL, NULL, '', NULL, NULL, NULL, 0, 0, 'live', 1395238761, 0, '', 0, 0, 0),
-(5, '404', '', 'Page missing', '404', 0, '1', '5', NULL, NULL, NULL, '', NULL, NULL, NULL, 0, 0, 'live', 1395238761, 0, '', 0, 1, 4),
+(5, '404', '', 'Page missing', '404', 0, '1', '5', NULL, NULL, NULL, '', NULL, NULL, NULL, 0, 0, 'live', 1395238761, 0, '', 0, 1, 5),
 (6, 'about_us', '', '認識我們', 'about_us', 0, '1', '6', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395244532, 0, '0', 0, 1, 0),
-(8, 'origin', '', '緣起', 'about_us/origin', 6, '1', '8', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395244802, 0, '0', 0, 1, 0),
-(9, 'target', '', '目標異象', 'about_us/target', 6, '1', '9', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395244873, 0, '0', 0, 1, 1),
-(10, 'organization', '', '組織', 'about_us/organization', 6, '1', '10', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395244893, 0, '0', 0, 1, 2);
+(8, 'origin', '', '緣起', 'about_us/origin', 6, '1', '8', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395244802, 1395492463, '0', 0, 1, 0),
+(9, 'target', '', '目標異象', 'about_us/target', 6, '1', '9', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395244873, 1395492623, '0', 0, 1, 1),
+(10, 'organization', '', '組織', 'about_us/organization', 6, '1', '10', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395244893, 1395492652, '0', 0, 1, 2),
+(11, 'intro_video', '', '宣傳短片', 'about_us/intro_video', 6, '1', '11', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395492297, 1395494593, '0', 0, 1, 3),
+(12, 'contact_us', '', '聯絡我們', 'about_us/contact_us', 6, '1', '12', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395492368, 1395492716, '0', 0, 1, 4),
+(13, 'promote', '', '推展計畫', 'promote', 0, '1', '13', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395492870, 0, '0', 0, 1, 1),
+(14, 'meet_morning', '', '迎曦計畫', 'promote/meet_morning', 13, '1', '14', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395492928, 1395492932, '0', 0, 1, 0),
+(15, '50_everyday', '', '每日五十', 'promote/50_everyday', 13, '1', '15', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395492999, 0, '0', 0, 1, 1),
+(16, 'kindergarten', '', '麥田幼兒園', 'promote/kindergarten', 13, '1', '16', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395493071, 0, '0', 0, 1, 2),
+(17, 'store', '', '義賣專區', 'promote/store', 13, '1', '17', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395493101, 0, '0', 0, 1, 3),
+(18, 'links', '', '資源聯結', 'links', 0, '1', '18', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395493853, 0, '0', 0, 1, 7),
+(19, 'finance', '', '財務徵信', 'finance', 0, '1', '19', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395493905, 0, '0', 0, 1, 6),
+(20, 'donate', '', '捐款芳名錄', 'finance/donate', 19, '1', '20', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395493968, 0, '0', 0, 1, 1395493968),
+(21, 'report', '', '財務報告', 'finance/report', 19, '1', '21', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395493991, 1395494030, '0', 0, 1, 1395493991),
+(22, 'events', '', '活動花絮', 'events', 0, '1', '22', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395494296, 0, '0', 0, 1, 1395494296),
+(23, 'photos', '', '活動花絮', 'photos', 0, '1', '23', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395494379, 0, '0', 0, 1, 1395494379),
+(24, 'publication', '', '會訊刊物', 'publication', 0, '1', '24', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395494714, 1395494948, '0', 0, 1, 1395494714),
+(25, 'wanna_donate', '', '我要捐款', 'wanna_donate', 0, '1', '25', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395495071, 0, '0', 0, 1, 1395495071),
+(26, 'forum', '', '公民論壇', 'forum', 0, '1', '26', '', '', '', '', 0, 0, '', 0, 0, 'live', 1395495390, 0, '0', 0, 1, 1395495390);
 
 -- --------------------------------------------------------
 
@@ -758,14 +831,15 @@ CREATE TABLE IF NOT EXISTS `default_profiles` (
   `updated_on` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `default_profiles`
 --
 
 INSERT INTO `default_profiles` (`id`, `created`, `updated`, `created_by`, `ordering_count`, `user_id`, `display_name`, `first_name`, `last_name`, `company`, `lang`, `bio`, `dob`, `gender`, `phone`, `mobile`, `address_line1`, `address_line2`, `address_line3`, `postcode`, `website`, `updated_on`) VALUES
-(1, NULL, NULL, NULL, NULL, 1, 'chuan-hao you', 'chuan-hao', 'you', '', 'en', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(1, NULL, NULL, NULL, NULL, 1, 'chuan-hao you', 'chuan-hao', 'you', '', 'en', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
+(2, '2014-03-20 11:18:21', NULL, 1, 1, 2, 'qweqweqwe', 'qweqweqw', 'eqweqwe', NULL, 'en', NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -804,22 +878,38 @@ CREATE TABLE IF NOT EXISTS `default_search_index` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `unique` (`module`,`entry_key`,`entry_id`(190)),
   FULLTEXT KEY `full search` (`title`,`description`,`keywords`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=43 ;
 
 --
 -- 转存表中的数据 `default_search_index`
 --
 
 INSERT INTO `default_search_index` (`id`, `title`, `description`, `keywords`, `keyword_hash`, `module`, `entry_key`, `entry_plural`, `entry_id`, `uri`, `cp_edit_uri`, `cp_delete_uri`) VALUES
-(1, 'Home', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '1', 'home', 'admin/pages/edit/1', 'admin/pages/delete/1'),
-(2, 'Contact', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '2', 'contact', 'admin/pages/edit/2', 'admin/pages/delete/2'),
+(31, '首頁', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '1', 'home', 'admin/pages/edit/1', 'admin/pages/delete/1'),
+(42, '留言板', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '2', 'contact', 'admin/pages/edit/2', 'admin/pages/delete/2'),
 (3, 'Search', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '3', 'search', 'admin/pages/edit/3', 'admin/pages/delete/3'),
 (4, 'Results', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '4', 'search/results', 'admin/pages/edit/4', 'admin/pages/delete/4'),
 (5, 'Page missing', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '5', '404', 'admin/pages/edit/5', 'admin/pages/delete/5'),
 (6, '認識我們', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '6', 'about_us', 'admin/pages/edit/6', 'admin/pages/delete/6'),
-(9, '緣起', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '8', 'origin', 'admin/pages/edit/8', 'admin/pages/delete/8'),
-(10, '目標異象', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '9', 'target', 'admin/pages/edit/9', 'admin/pages/delete/9'),
-(11, '組織', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '10', 'organization', 'admin/pages/edit/10', 'admin/pages/delete/10');
+(14, '緣起', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '8', 'about_us/origin', 'admin/pages/edit/8', 'admin/pages/delete/8'),
+(15, '目標異象', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '9', 'about_us/target', 'admin/pages/edit/9', 'admin/pages/delete/9'),
+(16, '組織', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '10', 'about_us/organization', 'admin/pages/edit/10', 'admin/pages/delete/10'),
+(34, '宣傳短片', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '11', 'about_us/intro_video', 'admin/pages/edit/11', 'admin/pages/delete/11'),
+(18, '聯絡我們', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '12', 'about_us/contact_us', 'admin/pages/edit/12', 'admin/pages/delete/12'),
+(19, '推展計畫', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '13', 'promote', 'admin/pages/edit/13', 'admin/pages/delete/13'),
+(21, '迎曦計畫', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '14', 'promote/meet_morning', 'admin/pages/edit/14', 'admin/pages/delete/14'),
+(22, '每日五十', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '15', 'promote/50_everyday', 'admin/pages/edit/15', 'admin/pages/delete/15'),
+(23, '麥田幼兒園', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '16', 'promote/kindergarten', 'admin/pages/edit/16', 'admin/pages/delete/16'),
+(24, '義賣專區', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '17', 'promote/store', 'admin/pages/edit/17', 'admin/pages/delete/17'),
+(26, '資源聯結', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '18', 'links', 'admin/pages/edit/18', 'admin/pages/delete/18'),
+(27, '財務徵信', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '19', 'finance', 'admin/pages/edit/19', 'admin/pages/delete/19'),
+(28, '捐款芳名錄', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '20', 'finance/donate', 'admin/pages/edit/20', 'admin/pages/delete/20'),
+(30, '財務報告', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '21', 'finance/report', 'admin/pages/edit/21', 'admin/pages/delete/21'),
+(32, '活動花絮', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '22', 'events', 'admin/pages/edit/22', 'admin/pages/delete/22'),
+(33, '活動花絮', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '23', 'photos', 'admin/pages/edit/23', 'admin/pages/delete/23'),
+(36, '會訊刊物', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '24', 'publication', 'admin/pages/edit/24', 'admin/pages/delete/24'),
+(37, '我要捐款', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '25', 'wanna_donate', 'admin/pages/edit/25', 'admin/pages/delete/25'),
+(38, '公民論壇', '', NULL, NULL, 'pages', 'pages:page', 'pages:pages', '26', 'forum', 'admin/pages/edit/26', 'admin/pages/delete/26');
 
 -- --------------------------------------------------------
 
@@ -891,17 +981,17 @@ INSERT INTO `default_settings` (`slug`, `title`, `description`, `type`, `default
 ('mail_smtp_pass', 'SMTP password', 'SMTP password.', 'password', '', '', '', 0, 1, 'email', 975),
 ('mail_smtp_port', 'SMTP Port', 'SMTP port number.', 'text', '', '', '', 0, 1, 'email', 974),
 ('mail_smtp_user', 'SMTP User Name', 'SMTP user name.', 'text', '', '', '', 0, 1, 'email', 973),
-('meta_topic', 'Meta Topic', 'Two or three words describing this type of company/website.', 'text', 'Content Management', 'Add your slogan here', '', 0, 1, '', 998),
+('meta_topic', 'Meta Topic', 'Two or three words describing this type of company/website.', 'text', 'Content Management', 'Neighborhood Family Catcher Association', '', 0, 1, '', 998),
 ('moderate_comments', 'Moderate Comments', 'Force comments to be approved before they appear on the site.', 'radio', '1', '1', '1=Enabled|0=Disabled', 1, 1, 'comments', 967),
 ('profile_visibility', 'Profile Visibility', 'Specify who can view user profiles on the public site', 'select', 'public', '', 'public=profile_public|owner=profile_owner|hidden=profile_hidden|member=profile_member', 0, 1, 'users', 960),
 ('records_per_page', 'Records Per Page', 'How many records should we show per page in the admin section?', 'select', '25', '', '10=10|25=25|50=50|100=100', 1, 1, '', 992),
 ('registered_email', 'User Registered Email', 'Send a notification email to the contact e-mail when someone registers.', 'radio', '1', '', '1=Enabled|0=Disabled', 0, 1, 'users', 962),
 ('rss_feed_items', 'Feed item count', 'How many items should we show in RSS/blog feeds?', 'select', '25', '', '10=10|25=25|50=50|100=100', 1, 1, '', 991),
 ('server_email', 'Server E-mail', 'All e-mails to users will come from this e-mail address.', 'text', 'admin@localhost', '', '', 1, 1, 'email', 978),
-('site_lang', 'Site Language', 'The native language of the website, used to choose templates of e-mail notifications, contact form, and other features that should not depend on the language of a user.', 'select', 'en', 'en', 'func:get_supported_lang', 1, 1, '', 997),
-('site_name', 'Site Name', 'The name of the website for page titles and for use around the site.', 'text', 'Un-named Website', '', '', 1, 1, '', 1000),
-('site_public_lang', 'Public Languages', 'Which are the languages really supported and offered on the front-end of your website?', 'checkbox', 'en', 'en', 'func:get_supported_lang', 1, 1, '', 996),
-('site_slogan', 'Site Slogan', 'The slogan of the website for page titles and for use around the site', 'text', '', 'Add your slogan here', '', 0, 1, '', 999),
+('site_lang', 'Site Language', 'The native language of the website, used to choose templates of e-mail notifications, contact form, and other features that should not depend on the language of a user.', 'select', 'en', 'tw', 'func:get_supported_lang', 1, 1, '', 997),
+('site_name', 'Site Name', 'The name of the website for page titles and for use around the site.', 'text', 'Un-named Website', '社團法人臺北市接觸點社區關懷協會', '', 1, 1, '', 1000),
+('site_public_lang', 'Public Languages', 'Which are the languages really supported and offered on the front-end of your website?', 'checkbox', 'en', 'en,tw', 'func:get_supported_lang', 1, 1, '', 996),
+('site_slogan', 'Site Slogan', 'The slogan of the website for page titles and for use around the site', 'text', '', 'Neighborhood Family Catcher Association', '', 0, 1, '', 999),
 ('unavailable_message', 'Unavailable Message', 'When the site is turned off or there is a major problem, this message will show to users.', 'textarea', 'Sorry, this website is currently unavailable.', '', '', 0, 1, '', 987);
 
 -- --------------------------------------------------------
@@ -966,14 +1056,15 @@ CREATE TABLE IF NOT EXISTS `default_users` (
   `remember_code` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `email` (`email`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Registered User Information' AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Registered User Information' AUTO_INCREMENT=3 ;
 
 --
 -- 转存表中的数据 `default_users`
 --
 
 INSERT INTO `default_users` (`id`, `email`, `password`, `salt`, `group_id`, `ip_address`, `active`, `activation_code`, `created_on`, `last_login`, `username`, `forgotten_password_code`, `remember_code`) VALUES
-(1, 'howtomakeaturn@hotmail.com', 'f142b92c78ced8ce73a538cc895a2835b9b47d0f', '2aa74', 1, '', 1, '', 1395238749, 1395238777, 'å°¤å·è±ª', NULL, '5d0ee8f2f446250042a78772d4e2979487e973b4');
+(1, 'howtomakeaturn@hotmail.com', 'f142b92c78ced8ce73a538cc895a2835b9b47d0f', '2aa74', 1, '', 1, '', 1395238749, 1395492119, 'å°¤å·è±ª', NULL, '5d0ee8f2f446250042a78772d4e2979487e973b4'),
+(2, 'qwewqe@qweqwe.ww', 'a285668ea2cc5e89249de5b12c1656469435b362', '1dcf83', 2, '127.0.0.1', 1, NULL, 1395314301, 1395314301, 'wqeqweqweqwe', NULL, NULL);
 
 -- --------------------------------------------------------
 
